@@ -1,0 +1,159 @@
+:root {
+  --cascade-primary: #FF1493;
+  --cascade-secondary: #FF8C00;
+  --cascade-bg: #0a0a0a;
+  --cascade-card: #161616;
+  --cascade-text: #ffffff;
+}
+.CascadeMain_link
+{
+    color:orange;
+    letter-spacing: 1px;
+    margin-inline:3px;
+}
+
+.CascadeMain_pageContainer {
+  background-color: var(--cascade-bg);
+  color: var(--cascade-text);
+  min-height: 100vh;
+  padding: 40px 20px;
+  margin-top:70px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Hero Section --- */
+.CascadeMain_hero {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: CascadeMain_fadeInDown 0.8s ease-out;
+}
+
+.CascadeMain_title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+.CascadeMain_title:hover {
+  letter-spacing: 1px;
+    transition: letter-spacing 0.3s ease;
+}
+
+.CascadeMain_title span {
+  background: linear-gradient(135deg, var(--cascade-primary), var(--cascade-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.CascadeMain_subtitle {
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* --- Transforming Advantage Grid --- */
+.CascadeMain_sectionHeading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #eee;
+}
+
+.CascadeMain_advantageGrid {
+  display: grid;
+  /* Responsive Grid: Adjusts columns based on width */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1000px; /* Enables 3D feel */
+}
+
+.CascadeMain_advantageCard {
+  background: var(--cascade-card);
+  padding: 40px 30px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+/* Transforming Effect on Hover */
+.CascadeMain_advantageCard:hover {
+  transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
+  border-color: var(--cascade-primary);
+  box-shadow: 0 20px 40px rgba(255, 20, 147, 0.15);
+}
+
+.CascadeMain_iconWrapper {
+  font-size: 2.5rem;
+  color: var(--cascade-primary);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.CascadeMain_advantageCard:hover .CascadeMain_iconWrapper {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.CascadeMain_cardTitle {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  z-index: 2;
+  position: relative;
+}
+
+.CascadeMain_cardDesc {
+  color: #aaa;
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+}
+
+/* Decorative background accent */
+.CascadeMain_cardBgAccent {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--cascade-primary), transparent);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.CascadeMain_advantageCard:hover .CascadeMain_cardBgAccent {
+  opacity: 0.4;
+}
+
+/* --- Consistency Banner --- */
+.CascadeMain_consistencyBanner {
+  margin-top: 100px;
+  padding: 60px;
+  background: linear-gradient(90deg, #111, #1a1a1a);
+  border-radius: 30px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+/* --- Animations --- */
+@keyframes CascadeMain_fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .CascadeMain_title { font-size: 2.8rem; }
+  .CascadeMain_advantageGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}

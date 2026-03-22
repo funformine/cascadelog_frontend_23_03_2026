@@ -1,0 +1,596 @@
+/* --- Theme Variables --- */
+:root {
+  --gallery-gradient: linear-gradient(135deg, #FF1493, #FF8C00);
+  --accent-pink: #FF1493;
+  --accent-orange: #FF8C00;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --hover-shadow: 0 20px 45px rgba(255, 20, 147, 0.18);
+}
+
+.Gallery_container {
+  padding: 20px;
+  max-height: 100vh;
+  box-sizing: border-box;
+  background-color: #fcfcfc;
+  overflow: auto;
+  scrollbar-width: none;
+  /* border:10px solid red; */
+}
+
+/* --- Header --- */
+.Gallery_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  background: white;
+  padding: 10px;
+  border: 4px solid orange;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(255, 20, 147, 0.06);
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+}
+.Gallery_loading
+{
+  display: flex;
+  height:50vh;
+  place-items: center;
+  justify-content: center;
+}
+
+.Gallery_nav { display: flex; align-items: center; gap: 25px; }
+.Gallery_monthDisplay { text-align: center; min-width: 200px; }
+.Gallery_monthDisplay h2 {
+  margin: 0; font-size: 2.2rem; font-weight: 800;
+  background: var(--gallery-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.Gallery_monthDisplay span { color: #999; font-weight: 600; font-size: 0.9rem; }
+
+.Gallery_navBtn {
+  background: #fff; border: 1px solid #f0f0f0; color: var(--accent-pink);
+  width: 48px; height: 48px; border-radius: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s ease; font-size: 1.2rem;
+}
+.Gallery_navBtn:hover { background: var(--gallery-gradient); color: white; transform: scale(1.1); border-color: transparent; }
+
+/* --- GRID LAYOUT (The Fix) --- */
+.Gallery_grid {
+  display: grid;
+  
+  /* 1. FIXED 400px columns. 
+     'auto-fit' means "fit as many 400px columns as possible".
+     The cards will NOT stretch larger than 400px.
+  */
+  grid-template-columns: repeat(auto-fit, 400px); 
+  
+  /* 2. Center the grid in the middle of the screen */
+  justify-content: center; 
+  
+  gap: 40px; /* Space between cards */
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  /* border:10px solid green; */
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+/* @media (max-width: 493px) {
+  .Gallery_container {
+    transform: scale(0.9);
+    height:100vh;
+  }
+  .Gallery_grid{
+    transform: scale(0.8);
+    margin-top: -1150px;
+  }
+  
+} */
+
+@media (min-width: 1444px) {
+  /* Remove the scale and height locks */
+  .Gallery_container {
+    padding: 10px;
+    height: auto;
+    max-height: none;
+    transform: none;
+  }
+
+  /* Remove the negative margin and scaling */
+  .Gallery_grid {
+    margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 350px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.87); 
+  }
+}
+@media (max-width: 1440px) {
+  /* Remove the negative margin and scaling */
+  .Gallery_grid {
+    margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 320px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.8); 
+  }
+}
+@media (max-width: 1381px) {
+  /* Remove the negative margin and scaling */
+  .Gallery_grid {
+    margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 300px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.75); 
+  }
+}
+@media (max-width: 1310px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 290px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.74); 
+  }
+}
+@media (max-width: 1290px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 260px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.65); 
+  }
+}
+@media (max-width: 1200px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 250px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.63); 
+  }
+}
+@media (max-width: 1170px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 240px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.63); 
+  }
+}
+@media (max-width: 1140px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 230px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.59); 
+  }
+}
+
+@media (max-width: 1100px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 300px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.75); 
+  }
+}
+@media (max-width: 1043px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 280px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.7); 
+  }
+}
+@media (max-width: 960px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 260px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.65); 
+  }
+}
+@media (max-width: 920px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 230px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.58); 
+  }
+}
+@media (max-width: 865px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 200px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.5); 
+  }
+}
+@media (max-width: 800px) {
+
+  .Gallery_grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 180px); 
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.45); 
+  }
+}
+/* --- REPLACE YOUR OLD MOBILE MEDIA QUERY WITH THIS --- */
+@media (max-width: 493px) {
+  /* Remove the scale and height locks */
+  .Gallery_container {
+    padding: 10px;
+    height: auto;
+    max-height: none;
+    transform: none;
+  }
+
+  /* Remove the negative margin and scaling */
+  .Gallery_grid {
+    transform: none;
+    margin-top: 0; 
+    gap: 20px;
+    /* Adjust grid to fit small screens without scaling */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .Gallery_header {
+    flex-direction: column;
+    /* gap: 10px; */
+    margin-bottom: 30px;
+  }
+  .Gallery_monthDisplay h2 
+  {
+    font-size: 1.5rem;
+  }
+  .Gallery_miniPreview
+  {
+    transform: scale(0.97); 
+  }
+}
+
+@media (max-width: 475px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.93);  
+  }
+}
+@media (max-width: 465px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.9); 
+  }
+}@media (max-width: 455px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.87); 
+  }
+}
+@media (max-width: 443px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.85); 
+  }
+}
+@media (max-width: 433px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.82); 
+  }
+}
+@media (max-width: 405px) {
+   .Gallery_miniPreview
+  {
+    transform: scale(0.78); 
+  }
+}
+@media (max-width: 392px) {
+  .Gallery_grid {
+     margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+   .Gallery_miniPreview
+  {
+    transform: scale(0.75); 
+  }
+}
+@media (max-width: 380px) {
+  .Gallery_grid {
+     margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+   .Gallery_miniPreview
+  {
+    transform: scale(0.72); 
+  }
+  .Gallery_monthDisplay h2 
+  {
+    font-size: 1rem;
+  }
+  .Gallery_monthDisplay
+  {
+    min-width:100px;
+  }
+  .Gallery_nav { gap: 5px; }
+}
+@media (max-width: 360px) {
+  .Gallery_grid {
+     margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+   .Gallery_miniPreview
+  {
+    transform: scale(0.65); 
+  }
+ 
+}
+@media (max-width: 356px) {
+  .Gallery_grid {
+     margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+   .Gallery_miniPreview
+  {
+    transform: scale(0.61); 
+  }
+}
+@media (max-width: 326px) {
+  .Gallery_grid {
+     margin-top: 0; 
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+   .Gallery_miniPreview
+  {
+    transform: scale(0.55); 
+  }
+}
+
+
+/* --- CARD --- */
+.Gallery_card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  
+  /* Critical: This enables the scaling calculation based on the card's current width */
+  container-type: inline-size;
+}
+
+.Gallery_card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--accent-pink);
+  z-index: 10;
+}
+
+/* --- PREVIEW AREA (Fixed 400x300 Logic) --- */
+.Gallery_cardPreviewArea {
+  width: 100%;
+  
+  /* This ensures the height is always locked to the 400x300 ratio (4:3) */
+  aspect-ratio: 4 / 3; 
+  
+  position: relative;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden; 
+}
+
+/* --- IFRAME SCALING (Zoom Out Effect) --- */
+.Gallery_miniPreview {
+  /* 1. We FORCE the internal size to be 400px width x 300px height */
+  width: 400px;
+  height: 300px;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  background: white;
+  pointer-events: none;
+  
+  /* 2. Pin to top-left */
+  transform-origin: 0 0;
+  
+  /* 3. The Scale Calculation:
+     If screen is wide: Card is 400px. Scale = 400/400 = 1 (Original Size).
+     If screen is small (e.g. 300px): Scale = 300/400 = 0.75 (Zooms out perfectly).
+  */
+  transform: scale(calc(100cqw / 400));
+}
+
+/* --- STATUS ICONS --- */
+.Gallery_statusIcon {
+  height: 100%; width: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 15px; color: #aaa; font-weight: 600;
+}
+.Gallery_statusIcon svg { font-size: 2.5rem; opacity: 0.5; }
+
+/* --- STATES --- */
+.Gallery_card.locked .Gallery_cardPreviewArea { background: #f9f9f9; cursor: not-allowed; }
+.Gallery_card.missed { border: 2px dashed #ffdada; }
+.Gallery_card.missed .Gallery_cardPreviewArea { background: #fffafa; color: #ff5e5e; }
+
+/* --- FOOTER (Date + Icons) --- */
+.Gallery_cardFooter {
+  /* This adds the "Date Text Height" naturally below the 300px preview */
+  padding: 15px 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px; 
+  z-index: 2;
+}
+
+.Gallery_dateLabel { font-weight: 700; color: #555; font-size: 1rem; }
+.Gallery_actionIcons { display: flex; gap: 10px; }
+.Gallery_iconBtn {
+  border: 1px solid #eee; background: transparent; color: #555;
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+}
+.Gallery_iconBtn:hover { background: var(--gallery-gradient); color: white; border-color: transparent; }
+
+/* --- MODAL --- */
+.Gallery_modalOverlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
+  z-index: 3000; display: flex; align-items: center; justify-content: center;
+  animation: galleryFadeIn 0.3s ease;
+  overflow:hidden ;
+ 
+}
+.Gallery_modalContent {
+  width: 90%; max-width: 900px; aspect-ratio: 4/3; max-height: 85vh;
+  background: #111; border-radius: 20px; display: flex; flex-direction: column;
+  overflow: hidden; border: 1px solid #333;
+  animation: galleryCardAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   border:5px solid white;
+}
+.Gallery_modalHeader {
+  background: #1a1a1a; padding: 15px 25px;
+  display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333;
+}
+.Gallery_modalTitle { color: white; display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.Gallery_modalTitle svg { color: var(--accent-pink); }
+.Gallery_closeBtn {
+  background: #333; border: none; color: white; width: 35px; height: 35px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.Gallery_closeBtn:hover { background: var(--accent-pink); }
+.Gallery_modalBody { flex: 1; background: white; }
+.Gallery_fullIframe { width: 100%; height: 100%; border: none; }
+.Gallery_modalFooter {
+  padding: 15px 25px; background: #1a1a1a; display: flex; justify-content: space-between;
+  align-items: center; color: #666; font-size: 0.8rem; font-weight: 700;
+}
+.Gallery_codeIndicator { display: flex; gap: 10px; margin-inline: auto; }
+.Gallery_codeIndicator .badge { background: #333; color: var(--accent-orange); padding: 4px 10px; border-radius: 6px; border: 1px solid #444; }
+
+@keyframes galleryFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes galleryCardAppear { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+
+/* --- Modal Body Setup --- */
+.Gallery_modalBody {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 1. Responsive Wrapper: Tells the content how much width is available */
+.Gallery_modalResponsiveWrapper {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4 / 3;
+  container-type: inline-size; /* Magic for responsiveness */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* 2. Fixed Viewport: The "Box" that stays 400x300 internally */
+.Gallery_fixedViewport {
+  width: 400px;
+  height: 300px;
+  background: white;
+  position: relative;
+  overflow: hidden; /* Clips extra content beyond 400x300 */
+  
+  /* Pin to top-left */
+  transform-origin: 0 0;
+  
+  /* 3. Scaling Logic:
+     Calculates scale based on (Current Card Width / 400).
+     This zooms the 400px content out to fit small mobile screens.
+  */
+  transform: scale(calc(100cqw / 400));
+}
+
+.Gallery_innerHtmlContent {
+  width: 100%;
+  height: 100%;
+}
+
+/* Modal Content Adjustment to fit the smaller preview */
+.Gallery_modalContent {
+  width: auto; 
+  min-width: 400px;
+  max-width: 450px; /* Snug fit around the 400px box */
+  height: auto;
+  aspect-ratio: auto; /* Remove the fixed aspect ratio */
+}
+@media (max-width: 430px) {
+   .Gallery_modalContent
+  {
+    transform: scale(0.9); 
+  }
+}
+@media (max-width: 380px) {
+   .Gallery_modalContent
+  {
+    transform: scale(0.8); 
+  }
+}
+@media (max-width: 340px) {
+   .Gallery_modalContent
+  {
+    transform: scale(0.7); 
+  }
+}

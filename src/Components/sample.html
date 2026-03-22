@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser</title>
+  <style>
+     .container{
+  height:300px;
+  width:400px;
+  background-color:#F2EAA8;
+}
+.container-flexy{
+  display:flex;
+}
+.box1{
+  width:40%;
+  height:300px;
+  display:flex;
+  flex-direction:column;
+}
+.box2{
+  width:20%;
+  height:300px;
+  display:flex;
+  flex-direction:column;
+}
+.box11{
+  height:150px;
+}
+.box11-1{
+  height:43px;
+  width:90px;
+  background-color:#EE7667;
+  margin-top:40px;
+  margin-inline:auto;
+}
+.box11-2{
+  height:50px;
+  width:43px;
+  background-color:#EE7667;
+  margin-inline:auto;
+}
+.box12-2{
+  height:43px;
+  width:90px;
+  background-color:#84BE8D;
+  margin-bottom:30px;
+  margin-inline:auto;
+}
+.box12-1{
+  height:50px;
+  width:43px;
+  background-color:#84BE8D;
+  margin-top:30px;
+  margin-inline:auto;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container-flexy">
+      <div class="box1">
+        <div class="box11">
+          <div class="box11-1"></div>
+          <div class="box11-2"></div>
+        </div>
+        <div class="box11">
+           <div class="box12-1"></div>
+          <div class="box12-2"></div>
+        </div>
+      </div>
+      <div class="box2"></div>
+       <div class="box1">
+        <div class="box11">
+          <div class="box11-1"></div>
+          <div class="box11-2"></div>
+        </div>
+        <div class="box11">
+           <div class="box12-1"></div>
+          <div class="box12-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

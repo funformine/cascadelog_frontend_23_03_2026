@@ -1,0 +1,422 @@
+/* --- Top Navbar --- */
+.home_navbar {
+    width: 100%;
+    height: var(--home-nav-height);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: var(--home-gradient);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.home_navbar-container {
+    width: 90%;
+    max-width: var(--home-max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-navbar_flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.home_nav-logo {
+    width: 45px;
+    height: 45px;
+    border:3px solid var(--home-white);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.home_logo-text {
+    color: var(--home-white);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* --- Navigation Links --- */
+.home_nav-elements {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.home_nav-link {
+    color: var(--home-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+/* Specifically target the nav link to remove the default focus outline */
+.home_nav-link:focus,
+.home_nav-link:active {
+    outline: none; /* Removes the black box you see */
+    box-shadow: none; /* Ensures no browser-added shadows appear */
+    border: none; /* Prevents unwanted borders */
+}
+
+/* Optional: Add a subtle hover/focus effect that matches your theme */
+.home_nav-link:focus-visible {
+    outline: 2px solid var(--auth-brand-pink);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Mobile Toggle --- */
+.home_menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.home_bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--home-white);
+    border-radius: 10px;
+}
+
+/* --- User Section --- */
+.home_login-utils {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+}
+
+.home_login-utils span {
+    color: var(--home-white);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.home_user-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--home-white);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+.home_user-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.home_user-icon {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.home_user-icon:hover {
+    transform: scale(1.05);
+}
+
+.home_dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 12px 14px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: orange;
+    font-size: 17px;
+    font-family: var(--home-font-main);
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-item.logout {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+
+@media (max-width: 841px) {
+    .home_nav-link
+    {
+        font-size:15px;
+    }
+    .home_logo-text
+    {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Responsive Logic (700px threshold) --- */
+@media (max-width: 700px) {
+    .home_logo-text, #home_username {
+        display: none;
+    }
+
+    .home_menu-toggle {
+        display: flex;
+    }
+
+    .home_nav-elements {
+        position: fixed;
+        top: var(--home-nav-height);
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--home-gradient);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        transition: var(--home-transition-slow);
+        z-index: 999;
+    }
+
+    .home_nav-elements.home_active {
+        left: 0;
+    }
+}
+
+/* --- Main Layout --- */
+.home_main-wrapper {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.home_left-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5% 0 10%;
+}
+
+.home_slogan-text {
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.home_highlight {
+    background: var(--home-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home_sub-text {
+    margin-top: 25px;
+    font-size:1.2rem;
+    color: var(--home-text-muted);
+}
+
+.home_cta-button {
+    margin-top: 40px;
+    padding: 18px 40px;
+    width: fit-content;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--home-white);
+    background-color: var(--home-accent-black);
+    border: none;
+    border-radius: var(--home-radius-btn);
+    cursor: pointer;
+    transition: transform var(--home-transition);
+}
+
+.home_cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* --- Image Grid --- */
+.home_right-section {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.home_image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    height: 70vh;
+    max-height: 600px;
+}
+
+.home_img-card {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--home-radius-card);
+    background-color: var(--home-card-placeholder);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    transition: transform var(--home-transition);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.home_img-card:hover {
+    transform: translateY(-10px);
+}
+
+.home_card-1 { background-image: url('https://picsum.photos/400/400?random=1'); }
+.home_card-2 { background-image: url('https://picsum.photos/400/400?random=2'); }
+.home_card-3 { background-image: url('https://picsum.photos/400/400?random=3'); }
+.home_card-4 { background-image: url('https://picsum.photos/400/400?random=4'); }
+
+/* --- Footer Marquee --- */
+.home_bottom-nav {
+    width: 100%;
+    height: 40px;
+    background: var(--home-accent-black);
+    color: var(--home-white);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-top: 1px solid #333;
+}
+
+.home_marquee-wrapper { display: flex; white-space: nowrap; }
+
+.home_marquee-content {
+    display: inline-block;
+    animation: home_scroll-text 30s linear infinite;
+}
+
+.home_marquee-content span {
+    font-size: var(--home-fs-footer);
+    padding-right: 50px;
+    display: inline-block;
+}
+
+@keyframes home_scroll-text {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- Mobile Layout --- */
+@media (max-width: 992px) {
+    .home_main-wrapper { flex-direction: column; }
+    .home_left-section, .home_right-section { 
+        width: 100%; 
+        text-align: center; 
+        padding: 40px 20px; 
+    }
+    .home_left-section { align-items: center; }
+    .home_image-grid { height: 500px; }
+}
+/* --- Entrance Animations --- */
+
+/* Initial State: Hidden and slightly moved down */
+.home_slogan-text, 
+.home_sub-text, 
+.home_cta-button, 
+.home_img-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animated State: Move to original position */
+.is-animated .home_slogan-text,
+.is-animated .home_sub-text,
+.is-animated .home_cta-button,
+.is-animated .home_img-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays for a smooth sequence */
+.is-animated .home_slogan-text { transition-delay: 0.1s; }
+.is-animated .home_sub-text    { transition-delay: 0.3s; }
+.is-animated .home_cta-button  { transition-delay: 0.5s; }
+
+/* Grid Cards Stagger */
+.is-animated .home_card-1 { transition-delay: 0.4s; }
+.is-animated .home_card-2 { transition-delay: 0.5s; }
+.is-animated .home_card-3 { transition-delay: 0.6s; }
+.is-animated .home_card-4 { transition-delay: 0.7s; }
+
+
+/* --- Enhanced Hover Effects --- */
+
+/* Image Cards: Scale and Grayscale effect */
+.home_img-card {
+    filter: grayscale(30%); /* Subtle artistic look */
+    cursor: pointer;
+}
+
+.home_img-card:hover {
+    transform: scale(1.03) translateY(-10px) !important; /* Override the entrance transform */
+    filter: grayscale(0%);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+/* CTA Button: Shine effect and lift */
+.home_cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.home_cta-button:active {
+    transform: scale(0.95);
+}
+
+/* Subtle pulse for the highlight text */
+@keyframes pulse-gradient {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.home_highlight {
+    animation: pulse-gradient 3s ease-in-out infinite;
+}

@@ -1,0 +1,990 @@
+.Activity_container {
+  display: flex;
+  gap: 24px;
+  /* padding: 14px; */
+  height: 100%;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+/* Left Portion Styles */
+.Activity_leftPortion {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+
+.Activity_iframeHeader {
+  padding: 16px 20px;
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Activity_headerTitle { font-weight: 600; font-size: 0.95rem; }
+
+.Activity_iframeWrapper {
+  flex: 1;
+  position: relative;
+  background: #fff;
+}
+
+.Activity_iframeElement {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.Activity_iframeOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Clickable top area to prevent iframe capture */
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Right Portion Styles */
+.Activity_rightPortion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Activity_statusBox, .Activity_uploadBox {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.Activity_statusHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Activity_boxTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+.Activity_statusBadge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.Activity_pending { background: #fff7ed; color: #c2410c; }
+.Activity_active { background: #f0fdf4; color: #15803d; }
+
+.Activity_infoRow {
+  margin: 12px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.Activity_startActionBtn, .Activity_completeBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--home-gradient, linear-gradient(to right, #ff1493, #ff00ff));
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.Activity_startActionBtn:hover, .Activity_completeBtn:hover {
+  opacity: 0.9;
+}
+
+/* Upload Grid Styles */
+.Activity_uploadSubtitle {
+  margin: 15px 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.Activity_uploadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.Activity_uploadLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Activity_uploadLabel:hover {
+  border-color: #ff1493;
+  background: #fff0f7;
+}
+
+.Activity_uploadIcon { font-size: 1.2rem; color: #ff1493; }
+.Activity_uploadText { font-size: 0.8rem; font-weight: 600; color: #444; }
+/* All class names start with Activity_ as requested */
+
+.Activity_promoCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #2d2d2d, #302f2f);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.Activity_promoCard:hover {
+  transform: scale(1.01);
+}
+
+.Activity_promoLogoWrapper {
+  width: 120px;
+  height: 120px;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 25px;
+}
+
+.Activity_promoLogo {
+  width: 100%;
+  height: auto;
+}
+
+.Activity_promoTitle {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #ffd700, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Activity_promoNote {
+  color: #aaa;
+  max-width: 300px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.Activity_promoFeatures {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.Activity_featureTag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ddd;
+}
+
+.Activity_launchBtn {
+  background: #ff1493;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+}
+
+.Activity_legalDisclaimer {
+  margin-top: 30px;
+  font-size: 0.7rem;
+  color: #555;
+  font-style: italic;
+}
+/* --- Responsive Design --- */
+
+@media (max-width: 992px) {
+  .Activity_container {
+    flex-direction: column; /* Stack portions vertically */
+    height: auto;           /* Allow the container to grow with content */
+    overflow-y: auto;       /* Enable vertical scrolling */
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .Activity_leftPortion, 
+  .Activity_rightPortion {
+    width: 100%;            /* Force full width */
+    flex: none;             /* Disable the 1.4 flex ratio */
+  }
+
+  /* Ensure the Promo Card or Iframe has a visible height on mobile */
+  .Activity_leftPortion {
+    min-height: 450px;
+  }
+
+  .Activity_promoTitle {
+    font-size: 1.5rem;      /* Slightly smaller title */
+  }
+
+  .Activity_promoLogoWrapper {
+    width: 100px;           /* Scale down the logo */
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* On very small screens, stack the upload buttons vertically as well */
+  .Activity_uploadGrid {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  .Activity_statusHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .Activity_promoCard {
+    padding: 25px 15px;     /* Reduce padding for more space */
+  }
+
+  .Activity_leftPortion {
+    min-height: 400px;
+  }
+}/* Status Grid Layout */
+.Activity_statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.Activity_statusItem {
+  background: #fdfdfd;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.Activity_itemLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  font-weight: 700;
+}
+
+.Activity_itemValue {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.Activity_pointsText {
+  color: #ff1493; /* Matches your primary theme color */
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustment for the status grid */
+@media (max-width: 600px) {
+  .Activity_statusGrid {
+    grid-template-columns: 1fr; /* Stack on very small screens */
+  }
+}
+/* Validation Error Styling */
+.Activity_validationError {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #fee2e2;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Highlight label when a file is picked */
+.Activity_fileSelected {
+  border-color: #15803d !important;
+  background: #f0fdf4 !important;
+}
+
+.Activity_fileSelected .Activity_uploadIcon {
+  color: #15803d !important;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* --- Animation Keyframes --- */
+@keyframes Activity_pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes Activity_slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes Activity_popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  70% { transform: scale(1.02); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Entry Animation Classes --- */
+.Activity_pageFade {
+  animation: Activity_pageFadeIn 0.8s ease-out;
+}
+
+.Activity_fadeInUp {
+  opacity: 0;
+  animation: Activity_slideUp 0.6s ease-out forwards;
+}
+
+.Activity_stagger1 { animation-delay: 0.1s; }
+.Activity_stagger2 { animation-delay: 0.3s; }
+
+.Activity_scaleIn {
+  animation: Activity_popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- Enhanced Hover Animations --- */
+
+/* Promo Card Hover */
+.Activity_promoCard {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease !important;
+}
+
+.Activity_promoCard:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.Activity_promoLogoWrapper {
+  transition: transform 0.5s ease;
+}
+
+.Activity_promoCard:hover .Activity_promoLogoWrapper {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Action Buttons Hover */
+.Activity_startActionBtn, .Activity_completeBtn, .Activity_launchBtn {
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.Activity_startActionBtn:hover, .Activity_completeBtn:hover, .Activity_launchBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.3);
+}
+
+.Activity_startActionBtn:active {
+  transform: translateY(0);
+}
+
+/* Upload Labels Hover */
+.Activity_uploadLabel {
+  transition: all 0.25s ease !important;
+}
+
+.Activity_uploadLabel:hover {
+  transform: scale(1.05);
+  border-style: solid;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.1);
+}
+
+/* Status Items Hover */
+.Activity_statusItem {
+  transition: all 0.2s ease;
+}
+
+.Activity_statusItem:hover {
+  border-color: #ff1493;
+  background: #fff;
+  transform: translateX(5px);
+}
+
+/* Status Badge Pulse */
+.Activity_active {
+  animation: Activity_pulse 2s infinite;
+}
+
+@keyframes Activity_pulse {
+  0% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(21, 128, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0); }
+}
+/* --- New Styles for Completed View --- */
+
+.Activity_completed { 
+  background: #eff6ff; 
+  color: #2563eb; 
+  border: 1px solid #dbeafe;
+}
+
+.Activity_completedHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.Activity_successIcon {
+  font-size: 2.5rem;
+  color: #10b981; /* Success Green */
+}
+
+/* Summary File List */
+.Activity_summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.Activity_summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.Activity_summaryIconWrapper {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border: 1px solid #e5e5e5;
+}
+
+.Activity_summaryDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.Activity_summaryName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.Activity_summaryType {
+  font-size: 0.7rem;
+  color: #888;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Description Box */
+.Activity_descriptionWrapper {
+  margin-bottom: 20px;
+}
+
+.Activity_descriptionBox {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Ensures padding doesn't overflow width */
+}
+
+.Activity_descriptionBox:focus {
+  outline: none;
+  border-color: #ff1493;
+}
+
+/* Action Buttons */
+.Activity_actionRow {
+  display: flex;
+  gap: 12px;
+}
+
+.Activity_editBtn, .Activity_deleteBtn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.Activity_editBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.Activity_editBtn:hover {
+  background: #e5e7eb;
+}
+
+.Activity_deleteBtn {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.Activity_deleteBtn:hover {
+  background: #fecaca;
+}
+/* Update existing class to allow absolute positioning of the X button */
+.Activity_uploadLabel {
+  position: relative; /* Essential for the X button to stay in corner */
+  /* ... keep existing styles ... */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* NEW: The X Icon Style */
+.Activity_removeFileBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444; /* Red color */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  transition: all 0.2s;
+  z-index: 10; /* Ensure it sits on top */
+}
+
+.Activity_removeFileBtn:hover {
+  background: #fee2e2;
+  transform: scale(1.1);
+}
+.DAILYACT_container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+/* Left Portion Styles */
+.DAILYACT_leftPortion {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+
+.DAILYACT_iframeHeader {
+  padding: 16px 20px;
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.DAILYACT_headerTitle { font-weight: 600; font-size: 0.95rem; }
+
+/* Right Portion Styles */
+.DAILYACT_rightPortion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.DAILYACT_statusBox, .DAILYACT_uploadBox {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.DAILYACT_statusHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.DAILYACT_boxTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+.DAILYACT_statusBadge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.DAILYACT_pending { background: #fff7ed; color: #c2410c; }
+.DAILYACT_active { background: #f0fdf4; color: #15803d; }
+.DAILYACT_completed { background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; }
+
+.DAILYACT_startActionBtn, .DAILYACT_completeBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--home-gradient, linear-gradient(to right, #ff1493, #ff00ff));
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.DAILYACT_startActionBtn:hover, .DAILYACT_completeBtn:hover {
+  opacity: 0.9;
+}
+
+/* Upload Grid Styles */
+.DAILYACT_uploadSubtitle {
+  margin: 15px 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.DAILYACT_uploadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.DAILYACT_uploadLabel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.DAILYACT_uploadLabel:hover {
+  border-color: #ff1493;
+  background: #fff0f7;
+}
+
+.DAILYACT_uploadIcon { font-size: 1.2rem; color: #ff1493; }
+.DAILYACT_uploadText { font-size: 0.8rem; font-weight: 600; color: #444; }
+
+/* Remove File Button */
+.DAILYACT_removeFileBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.DAILYACT_removeFileBtn:hover {
+  background: #fee2e2;
+  transform: scale(1.1);
+}
+
+/* Promo Card */
+.DAILYACT_promoCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #2d2d2d, #302f2f);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.DAILYACT_promoCard:hover {
+  transform: scale(1.01);
+}
+
+.DAILYACT_promoLogoWrapper {
+  width: 120px;
+  height: 120px;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 25px;
+}
+
+.DAILYACT_promoLogo { width: 100%; height: auto; }
+
+.DAILYACT_promoTitle {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #ffd700, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.DAILYACT_promoNote { color: #aaa; max-width: 300px; line-height: 1.5; font-size: 0.9rem; }
+
+.DAILYACT_promoFeatures { display: flex; gap: 15px; margin: 20px 0; }
+
+.DAILYACT_featureTag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ddd;
+}
+
+.DAILYACT_launchBtn {
+  background: #ff1493;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+}
+
+/* Status Grid */
+.DAILYACT_statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.DAILYACT_statusItem {
+  background: #fdfdfd;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.DAILYACT_itemLabel { font-size: 0.7rem; text-transform: uppercase; color: #888; font-weight: 700; }
+.DAILYACT_itemValue { font-size: 0.9rem; color: #333; font-weight: 600; }
+.DAILYACT_pointsText { color: #ff1493; font-size: 1.1rem; }
+
+/* Validation Error */
+.DAILYACT_validationError {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #fee2e2;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.DAILYACT_fileSelected { border-color: #15803d !important; background: #f0fdf4 !important; }
+.DAILYACT_fileSelected .DAILYACT_uploadIcon { color: #15803d !important; }
+
+/* --- Completed View Styles --- */
+.DAILYACT_completedHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.DAILYACT_successIcon { font-size: 2.5rem; color: #10b981; }
+
+.DAILYACT_summaryList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+
+.DAILYACT_summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.DAILYACT_summaryIconWrapper {
+  width: 36px; height: 36px; background: #fff; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: #666; border: 1px solid #e5e5e5;
+}
+
+.DAILYACT_summaryDetails { display: flex; flex-direction: column; }
+.DAILYACT_summaryName { font-size: 0.9rem; font-weight: 600; color: #333; }
+.DAILYACT_summaryType { font-size: 0.7rem; color: #888; font-weight: 700; text-transform: uppercase; }
+
+.DAILYACT_descriptionWrapper { margin-bottom: 20px; }
+.DAILYACT_descriptionBox {
+  width: 100%; padding: 12px; margin-top: 8px; border: 1px solid #ddd;
+  border-radius: 8px; resize: vertical; min-height: 80px; font-family: inherit; font-size: 0.9rem;
+  box-sizing: border-box;
+}
+.DAILYACT_descriptionBox:focus { outline: none; border-color: #ff1493; }
+
+.DAILYACT_actionRow { display: flex; gap: 12px; }
+
+.DAILYACT_editBtn, .DAILYACT_deleteBtn {
+  flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.2s;
+}
+
+.DAILYACT_editBtn { background: #f3f4f6; color: #374151; }
+.DAILYACT_editBtn:hover { background: #e5e7eb; }
+.DAILYACT_deleteBtn { background: #fee2e2; color: #ef4444; }
+.DAILYACT_deleteBtn:hover { background: #fecaca; }
+
+/* --- POPUP STYLES (NEW) --- */
+.DAILYACT_popupOverlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000; animation: DAILYACT_fadeIn 0.2s ease-out;
+}
+
+.DAILYACT_popupBox {
+  background: white; padding: 30px 50px; border-radius: 16px;
+  text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+
+.DAILYACT_popupIcon { font-size: 3.5rem; color: #10b981; margin-bottom: 10px; }
+.DAILYACT_popupTitle { font-size: 1.5rem; color: #333; margin: 0; }
+.DAILYACT_popupMessage { font-size: 1rem; color: #666; margin: 0; }
+
+/* --- Animations --- */
+@keyframes DAILYACT_pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes DAILYACT_slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes DAILYACT_popIn { 0% { transform: scale(0.9); opacity: 0; } 70% { transform: scale(1.02); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes DAILYACT_fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.DAILYACT_pageFade { animation: DAILYACT_pageFadeIn 0.8s ease-out; }
+.DAILYACT_fadeInUp { opacity: 0; animation: DAILYACT_slideUp 0.6s ease-out forwards; }
+.DAILYACT_stagger1 { animation-delay: 0.1s; }
+.DAILYACT_stagger2 { animation-delay: 0.3s; }
+.DAILYACT_scaleIn { animation: DAILYACT_popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+@media (max-width: 992px) {
+  .DAILYACT_container { flex-direction: column; height: auto; padding: 15px; }
+  .DAILYACT_leftPortion, .DAILYACT_rightPortion { width: 100%; flex: none; }
+  .DAILYACT_leftPortion { min-height: 450px; }
+}
+
+@media (max-width: 600px) {
+  .DAILYACT_uploadGrid { grid-template-columns: 1fr; }
+  .DAILYACT_statusHeader { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .DAILYACT_statusGrid { grid-template-columns: 1fr; }
+}

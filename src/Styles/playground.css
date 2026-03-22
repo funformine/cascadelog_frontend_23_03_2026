@@ -1,0 +1,290 @@
+.Play_container {
+  display: flex;
+  /* height: 86vh; */
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Editor Section */
+.Play_editorSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #333;
+}
+
+.Play_toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: #252526;
+  padding: 5px 15px;
+  align-items: center;
+}
+
+.Play_tabs button {
+  background: none;
+  border: none;
+  color: #858585;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.Play_tabs button.active {
+  color: white;
+  border-bottom: 2px solid var(--home-gradient-start, #ff1493);
+}
+
+.Play_actions button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.Play_textarea {
+  flex: 1;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+/* Preview Section */
+.Play_previewSection {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.Play_previewHeader {
+  background: #f3f3f3;
+  color: #666;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+iframe {
+  flex: 1;
+  background: white;
+}
+
+.Play_container:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1e1e1e; /* Ensure background isn't transparent */
+  display: flex; /* Maintain side-by-side layout */
+}
+
+/* Ensure textarea and iframe grow to fill space in fullscreen */
+.Play_container:fullscreen .Play_editorSection,
+.Play_container:fullscreen .Play_previewSection {
+  height: 100vh;
+}
+
+/* Optional: Make the text bigger in fullscreen */
+.Play_container:fullscreen .Play_textarea {
+  font-size: 1.2rem;
+}
+.Play_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #1e1e1e;
+  overflow: hidden;
+  position: relative;
+}
+
+.Play_editorSection, .Play_previewSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* The Draggable Bar */
+.Play_resizer {
+  width: 6px;
+  cursor: col-resize;
+  background: #333;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.Play_resizer:hover, .Play_resizer.isResizing {
+  background: var(--home-gradient-start, #ff1493);
+}
+
+/* Prevent iframe from stealing mouse focus while dragging */
+.disable-pointer {
+  pointer-events: none;
+}
+
+iframe {
+  flex: 1;
+  border: none;
+  background: white;
+  width: 100%;
+}
+
+/* Toolbar and Textarea adjustments */
+.Play_toolbar {
+  background: #252526;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.Play_textarea {
+  flex: 1;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  font-family: 'Fira Code', monospace;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+/* --- Submission Panel --- */
+.Play_submitPanel {
+  background: #2d2d2d;
+  border-bottom: 2px solid #ed4b82;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+  animation: slideDown 0.3s ease;
+  z-index: 10;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.Play_panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Play_panelHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ed4b82;
+}
+
+.Play_panelHeader button {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.Play_panelHeader button:hover {
+  color: white;
+}
+
+.Play_panelBody {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Play_formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Play_formGroup label {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.Play_select, .Play_input {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.Play_select:focus, .Play_input:focus {
+  outline: none;
+  border-color: #ed4b82;
+}
+
+.Play_fileSwitches {
+  display: flex;
+  gap: 15px;
+}
+
+.Play_fileSwitches label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.Play_message {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.Play_message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.Play_message.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.Play_submitBtn {
+  background: linear-gradient(135deg, #ff1493, #ff6b6b);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.Play_submitBtn:hover {
+  opacity: 0.9;
+}
+
+.Play_submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Play_actions .active {
+  color: #ed4b82;
+}

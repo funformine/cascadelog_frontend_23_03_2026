@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* --- Existing Color Palette --- */
+  --home-gradient: linear-gradient(135deg, #FF1493, #FF8C00);
+  --home-bg: #ffffff;
+  --home-text-dark: #333333;
+  --home-text-muted: #666666;
+  --home-white: #ffffff;
+  --home-accent-black: #111111;
+  --home-card-placeholder: #cccccc;
+
+  /* --- NEW Brand Colors (extracted from Auth) --- */
+  --auth-brand-pink: #FF1493;
+  --auth-success-bg: #ecfdf5;
+  --auth-success-text: #059669;
+  --auth-error-bg: #fff1f2;
+  --auth-error-text: #e11d48;
+  --auth-shadow: rgba(0, 0, 0, 0.08);
+
+  /* --- Typography Updates --- */
+  --home-font-main: 'Poppins', sans-serif;
+  --fs-auth-slogan: 2.8rem;
+  --fs-auth-header: 2rem;
+  --fs-auth-label: 0.9rem;
+  --fs-auth-input: 0.95rem;
+  --fs-auth-footer: 0.95rem;
+
+  /* --- Layout & Spacing --- */
+  --home-nav-height: 70px;
+  --home-radius-card: 15px;
+  --home-radius-btn: 8px;
+  --auth-radius-img: 20px;
+  --auth-input-padding: 12px 16px;
+  --home-transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--home-font-main);
+  overflow-x: hidden;
+  color: var(--home-text-dark);
+  background-color: var(--home-bg);
+}

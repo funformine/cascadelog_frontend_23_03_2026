@@ -1,0 +1,1375 @@
+/* --- CssUpload Module Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.CssUpload_wrapper {
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  background-color: var(--home-white);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.CssUpload_wrapper.CssUpload_wrapper_wide {
+  max-width: 1250px;
+}
+
+.CssUpload_wrapper.CssUpload_wrapper_gallery {
+  max-width: 1400px;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.CssUpload_formContainer {
+  display: block;
+  animation: slideDownFade 0.4s ease forwards;
+  width: 100%;
+}
+
+.CssUpload_formContainer.CssUpload_hasTodays {
+  display: grid;
+  grid-template-columns: 1fr 1px 1.25fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.CssUpload_verticalDivider {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #eaeaea 10%, #eaeaea 90%, transparent);
+}
+
+.CssUpload_uploadLeft {
+  padding-right: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.CssUpload_header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--home-text-dark);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--home-card-placeholder);
+  padding-bottom: 10px;
+}
+
+.CssUpload_desc {
+  margin-bottom: 20px;
+  color: var(--home-text-muted);
+  font-size: 1rem;
+}
+
+.CssUpload_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  margin-top: 10px;
+}
+
+.CssUpload_inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.CssUpload_label {
+  font-size: var(--fs-auth-label);
+  font-weight: 600;
+  color: var(--home-text-muted);
+}
+
+.CssUpload_input {
+  padding: var(--auth-input-padding);
+  border: 1px solid var(--home-card-placeholder);
+  border-radius: var(--home-radius-btn);
+  font-size: var(--fs-auth-input);
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--home-transition);
+}
+
+.CssUpload_input:focus {
+  outline: none;
+  border-color: var(--auth-brand-pink);
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- Inline Fancy File Upload Cards --- */
+.CssUpload_inlineFiles {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.CssUpload_fileCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 10px;
+  background: white;
+  border: 2px dashed var(--home-card-placeholder);
+  border-radius: var(--home-radius-card);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--home-text-muted);
+  text-align: center;
+  min-width: 120px;
+  position: relative;
+}
+
+.CssUpload_removeFileBtn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--home-gradient);
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.CssUpload_removeFileBtn:hover {
+  transform: scale(1.1);
+  background: white;
+  color: var(--auth-brand-pink);
+}
+
+.CssUpload_fileCard:hover {
+  border-color: var(--auth-brand-pink);
+  background: #fdf2f8;
+  transform: translateY(-2px);
+  color: var(--auth-brand-pink);
+}
+
+.CssUpload_fileCard.active {
+  border-color: var(--auth-brand-pink);
+  border-style: solid;
+  background: var(--home-gradient);
+  color: white;
+  box-shadow: 0 5px 20px rgba(255, 20, 147, 0.3);
+  transform: translateY(-2px);
+}
+
+.CssUpload_fileIcon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.CssUpload_fileCard .title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.CssUpload_fileCard .status {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90%;
+  opacity: 0.8;
+}
+
+.CssUpload_button {
+  padding: 14px;
+  background: var(--home-gradient);
+  color: var(--home-white);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--home-radius-btn);
+  cursor: pointer;
+  transition: var(--home-transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.CssUpload_button:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+  transform: translateY(-2px);
+}
+
+.CssUpload_button:disabled {
+  background: var(--home-card-placeholder);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.CssUpload_recentSection {
+  margin-top: 40px;
+  border-top: 2px solid var(--home-card-placeholder);
+  padding-top: 30px;
+}
+
+.CssUpload_todaysSection {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+  padding-left: 15px;
+}
+
+.CssUpload_sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--home-text-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.CssUpload_tableWrapper {
+  background: var(--home-white);
+  border-radius: var(--home-radius-card);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.CssUpload_table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.CssUpload_table th {
+  background: #fdfdfd;
+  padding: 18px 24px;
+  font-weight: 700;
+  color: #999;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.CssUpload_table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid #f8f8f8;
+  vertical-align: middle;
+  font-weight: 500;
+  color: var(--home-text-dark);
+}
+
+.CssUpload_table tr {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CssUpload_table tr:last-child td {
+  border-bottom: none;
+}
+
+.CssUpload_table tr:hover {
+  background: #fdfdfd;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transform: scale(1.005);
+}
+
+.CssUpload_editInput {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  font-family: inherit;
+  font-weight: 600;
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.CssUpload_editInput:focus {
+  border-color: var(--auth-brand-pink);
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+  background: white;
+}
+
+.CssUpload_tableBadges {
+  display: flex;
+  gap: 8px;
+}
+
+.CssUpload_tableBadges .badge {
+  background: white;
+  color: var(--auth-brand-pink);
+  border: 1px solid #fdf2f8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255, 20, 147, 0.08);
+}
+
+.CssUpload_tableActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.CssUpload_tableActions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.CssUpload_tableActions .editBtn {
+  color: var(--home-text-muted);
+}
+
+.CssUpload_tableActions .editBtn:hover {
+  background: #f0f0f0;
+  color: var(--home-text-dark);
+}
+
+.CssUpload_tableActions .deleteBtn {
+  color: var(--auth-error-text);
+}
+
+.CssUpload_tableActions .deleteBtn:hover {
+  background: var(--auth-error-bg);
+}
+
+.CssUpload_tableActions .saveBtn {
+  color: #fff;
+  background: var(--home-gradient);
+}
+
+.CssUpload_tableActions .cancelBtn {
+  color: #555;
+  background: #eee;
+}
+
+.CssUpload_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.CssUpload_card {
+  background: var(--home-white);
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  border-radius: var(--home-radius-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--home-transition);
+}
+
+.CssUpload_card:hover {
+  transform: translateY(-3px);
+  border-color: var(--auth-brand-pink);
+}
+
+.CssUpload_cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--home-text-dark);
+}
+
+.CssUpload_cardTime {
+  font-size: 0.8rem;
+  color: var(--home-text-muted);
+}
+
+.CssUpload_links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.CssUpload_link {
+  font-size: 0.85rem;
+  color: var(--auth-brand-pink);
+  background: #fdf2f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.CssUpload_link:hover {
+  background: var(--auth-brand-pink);
+  color: #fff;
+}
+
+.CssUpload_message {
+  padding: 10px;
+  border-radius: var(--home-radius-btn);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.CssUpload_success {
+  background-color: var(--auth-success-bg);
+  color: var(--auth-success-text);
+}
+
+.CssUpload_error {
+  background-color: var(--auth-error-bg);
+  color: var(--auth-error-text);
+}
+
+/* --- View Toggle Tabs --- */
+.CssUpload_viewTabsWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.CssUpload_viewTabs {
+  display: inline-flex;
+  background: #fdfdfd;
+  padding: 6px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  gap: 5px;
+  border: 1px solid #eaeaea;
+}
+
+.CssUpload_viewTabBtn {
+  background: transparent;
+  color: var(--home-text-muted);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.CssUpload_viewTabBtn:hover {
+  color: var(--auth-brand-pink);
+  background: #fdf2f8;
+  transform: translateY(-1px);
+}
+
+.CssUpload_viewTabBtn.active {
+  background: var(--home-gradient);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 20, 147, 0.35);
+  transform: translateY(0);
+}
+
+/* --- Premium Filter Tabs & Date UI --- */
+.CssUpload_filterHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 500;
+}
+
+.CssUpload_filterTabs {
+  display: inline-flex;
+  background: var(--home-white);
+  padding: 6px;
+  border-radius: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  gap: 5px;
+  border: 1px solid #eaeaea;
+}
+
+.CssUpload_filterTabBtn {
+  background: transparent;
+  color: var(--home-text-muted);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.CssUpload_filterTabBtn:hover {
+  color: var(--auth-brand-pink);
+  background: #fdf2f8;
+}
+
+.CssUpload_filterTabBtn.active {
+  background: var(--home-gradient);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+.CssUpload_datePickerWrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 25px;
+  border-radius: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 501;
+  overflow: visible;
+}
+
+.CssUpload_datePickerWrapper:hover,
+.CssUpload_datePickerWrapper:focus-within {
+  border-color: var(--auth-brand-pink);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.15);
+  transform: translateY(-2px);
+}
+
+.CssUpload_calendarIcon {
+  color: var(--auth-brand-pink);
+  font-size: 1.3rem;
+  margin-right: 12px;
+}
+
+.CssUpload_premiumDateInput {
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--auth-brand-pink);
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: center;
+  letter-spacing: 0.5px;
+  width: 150px;
+}
+
+.CssUpload_premiumDateInput::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.CssUpload_datePickerInternalWrapper {
+  display: flex !important;
+  flex-grow: 1;
+}
+
+/* --- React DatePicker Custom Premium Overrides --- */
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.react-datepicker-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.react-datepicker__input-container {
+  display: flex;
+}
+
+.react-datepicker {
+  font-family: inherit !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+.react-datepicker__header {
+  background: var(--home-gradient) !important;
+  border-bottom: none !important;
+  padding: 20px 0 15px 0 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}
+
+.react-datepicker__navigation {
+  top: 15px !important;
+}
+
+.react-datepicker__day {
+  margin: 4px !important;
+  width: 2.2rem !important;
+  line-height: 2.2rem !important;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--selected,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__year-text--selected {
+  background-color: var(--auth-brand-pink) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(255, 20, 147, 0.35) !important;
+  transform: scale(1.05);
+}
+
+.react-datepicker__month-text--selected,
+.react-datepicker__year-text--selected {
+  border-radius: 12px !important;
+  /* Pills for deeper months/years */
+}
+
+.react-datepicker__month-text,
+.react-datepicker__year-text {
+  padding: 10px !important;
+  margin: 8px !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  width: auto !important;
+  color: #444;
+}
+
+.react-datepicker__day:hover {
+  border-radius: 50% !important;
+  background-color: #fdf2f8 !important;
+  color: var(--auth-brand-pink) !important;
+}
+
+.react-datepicker__month-text:hover,
+.react-datepicker__year-text:hover {
+  background-color: #fdf2f8 !important;
+  color: var(--auth-brand-pink) !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: white !important;
+}
+
+/* --- Gallery Group List UI --- */
+.CssUpload_galleryGroupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 10px;
+}
+
+.CssUpload_dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.CssUpload_groupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.CssUpload_groupDate {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--home-text-dark);
+}
+
+.CssUpload_groupCount {
+  background: var(--home-gradient);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255, 20, 147, 0.2);
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 1150px) {
+  .CssUpload_formContainer.CssUpload_hasTodays {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .CssUpload_verticalDivider {
+    display: none;
+  }
+
+  .CssUpload_uploadLeft {
+    padding-right: 0;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .CssUpload_todaysSection {
+    margin-top: 10px;
+    border-top: 2px solid var(--home-card-placeholder);
+    padding-top: 30px;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .CssUpload_wrapper {
+    padding: 15px 20px;
+    border-radius: 12px;
+  }
+
+  .CssUpload_inlineFiles {
+    flex-wrap: wrap;
+  }
+
+  .CssUpload_fileCard {
+    flex: 1 1 100%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .CssUpload_filterHeader {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .CssUpload_customPicker {
+      max-width: 100%;
+    }
+
+    .CssUpload_toast {
+      top: 20px;
+      right: 20px;
+      left: 20px;
+      text-align: center;
+      justify-content: center;
+      animation: slideDownToast 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  }
+
+  .CssUpload_filterHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .CssUpload_filterTabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .CssUpload_filterTabBtn {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .CssUpload_datePickerWrapper {
+    width: 100%;
+  }
+
+  .CssUpload_groupHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .CssUpload_groupDate {
+    font-size: 1.1rem;
+  }
+}
+
+/* --- 780px and below comprehensive fix --- */
+@media screen and (max-width: 780px) {
+  .CssUpload_wrapper {
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 100%;
+  }
+
+  .CssUpload_header {
+    font-size: 1.4rem;
+  }
+
+  .CssUpload_viewTabsWrapper {
+    margin-bottom: 20px;
+  }
+
+  .CssUpload_viewTabs {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .CssUpload_viewTabBtn {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .CssUpload_inlineFiles {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .CssUpload_fileCard {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+    padding: 16px 8px;
+  }
+
+  .CssUpload_fileCard .title {
+    font-size: 0.85rem;
+  }
+
+  .CssUpload_fileCard .status {
+    font-size: 0.7rem;
+  }
+
+  .CssUpload_button {
+    font-size: 0.95rem;
+    padding: 12px 10px;
+    letter-spacing: 0.5px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .CssUpload_tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .CssUpload_table th,
+  .CssUpload_table td {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .CssUpload_sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .CssUpload_toast {
+    top: 15px;
+    right: 15px;
+    left: 15px;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    text-align: center;
+    justify-content: center;
+    animation: slideDownToast 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .CssUpload_filterHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .CssUpload_filterTabs {
+    width: 100%;
+  }
+
+  .CssUpload_filterTabBtn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+
+  .CssUpload_datePickerWrapper {
+    width: 100%;
+  }
+
+  .CssUpload_uploadLeft {
+    padding-right: 0;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .CssUpload_formContainer {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .CssUpload_input,
+  .CssUpload_editInput {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* --- Mobile: 750px and below (Compact/Shrunken UI) --- */
+@media screen and (max-width: 750px) {
+  .CssUpload_wrapper {
+    padding: 12px 14px;
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .CssUpload_viewTabsWrapper {
+    margin-bottom: 16px;
+  }
+
+  .CssUpload_viewTabs {
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px;
+    gap: 2px;
+  }
+
+  .CssUpload_viewTabBtn {
+    flex: 1;
+    justify-content: center;
+    padding: 7px 8px;
+    font-size: 0.8rem;
+    gap: 4px;
+    white-space: nowrap;
+    border-radius: 8px;
+  }
+  
+  .CssUpload_viewTabBtn svg {
+    font-size: 0.9rem;
+  }
+
+  .CssUpload_header {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+  
+  .CssUpload_desc {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .CssUpload_uploadLeft {
+    padding-right: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .CssUpload_formContainer {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .CssUpload_form {
+    gap: 12px;
+    background: #fcfcfd;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+  }
+
+  .CssUpload_inputGroup {
+    gap: 6px;
+  }
+  
+  .CssUpload_label {
+    font-size: 0.75rem;
+  }
+
+  .CssUpload_input,
+  .CssUpload_editInput {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    height: auto;
+  }
+
+  .CssUpload_inlineFiles {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .CssUpload_fileCard {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+    padding: 12px 6px;
+    border-width: 1px;
+  }
+  
+  .CssUpload_fileIcon {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .CssUpload_fileCard .title {
+    font-size: 0.78rem;
+  }
+
+  .CssUpload_fileCard .status {
+    font-size: 0.65rem;
+    margin-top: 2px;
+  }
+
+  .CssUpload_button {
+    font-size: 0.85rem;
+    padding: 10px 8px;
+    letter-spacing: 0.3px;
+    white-space: normal;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+
+  .CssUpload_tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+
+  .CssUpload_table th {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+  }
+  
+  .CssUpload_table td {
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .CssUpload_sectionTitle {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .CssUpload_toast {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    animation: slideDownToast 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* --- Mobile: 500px and below (Ultra Compact) --- */
+@media screen and (max-width: 500px) {
+  .CssUpload_wrapper {
+    padding: 10px 8px;
+    border-radius: 10px;
+  }
+
+  .CssUpload_viewTabs {
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 3px;
+  }
+
+  .CssUpload_viewTabBtn {
+    width: 100%;
+    font-size: 0.78rem;
+    padding: 8px 6px;
+    border-radius: 6px;
+  }
+
+  .CssUpload_fileCard {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+
+  .CssUpload_button {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+/* --- Mobile: 412px and below (Super Shrink) --- */
+@media screen and (max-width: 412px) {
+  .CssUpload_wrapper {
+    padding: 8px 6px;
+    border-radius: 8px;
+  }
+
+  .CssUpload_header {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .CssUpload_desc {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .CssUpload_viewTabs {
+    padding: 2px;
+  }
+  
+  .CssUpload_viewTabBtn {
+    font-size: 0.72rem;
+    padding: 6px 4px;
+    gap: 3px;
+  }
+  
+  .CssUpload_form {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .CssUpload_label {
+    font-size: 0.7rem;
+  }
+  
+  .CssUpload_input,
+  .CssUpload_editInput {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+  
+  .CssUpload_fileIcon {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .CssUpload_fileCard {
+    flex: 1 1 100%;
+    padding: 8px 6px;
+    gap: 8px;
+  }
+  
+  .CssUpload_fileCard .title {
+    font-size: 0.7rem;
+  }
+  
+  .CssUpload_button {
+    font-size: 0.75rem;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  
+  .CssUpload_table th {
+    padding: 6px 8px;
+    font-size: 0.65rem;
+  }
+  
+  .CssUpload_table td {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+  
+  .CssUpload_sectionTitle {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+}
+
+/* --- Mobile: 380px and below (Nano-Shrink) --- */
+@media screen and (max-width: 380px) {
+  .CssUpload_wrapper {
+    padding: 6px 4px;
+    border-radius: 6px;
+  }
+
+  .CssUpload_header {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+  
+  .CssUpload_desc {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  
+  .CssUpload_viewTabBtn {
+    font-size: 0.68rem;
+    padding: 5px 3px;
+    gap: 2px;
+  }
+  
+  .CssUpload_viewTabBtn svg {
+    font-size: 0.8rem;
+  }
+  
+  .CssUpload_form {
+    padding: 8px;
+    gap: 8px;
+    border-radius: 6px;
+  }
+  
+  .CssUpload_inputGroup {
+    gap: 4px;
+  }
+  
+  .CssUpload_label {
+    font-size: 0.62rem;
+  }
+  
+  .CssUpload_input,
+  .CssUpload_editInput {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+  
+  .CssUpload_fileCard .title {
+    font-size: 0.65rem;
+  }
+  
+  .CssUpload_button {
+    font-size: 0.7rem;
+    padding: 7px;
+    gap: 4px;
+    letter-spacing: 0;
+  }
+  
+  .CssUpload_table th {
+    padding: 4px 6px;
+    font-size: 0.6rem;
+  }
+  
+  .CssUpload_table td {
+    padding: 6px 8px;
+    font-size: 0.65rem;
+  }
+  
+  .CssUpload_sectionTitle {
+    font-size: 0.78rem;
+  }
+}
+
+/* --- Floating Toast Notification --- */
+.CssUpload_toast {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  padding: 16px 28px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  animation: slideInRightToast 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10000;
+}
+
+.CssUpload_toast_success {
+  background: white;
+  color: var(--auth-success-text);
+  border-left: 8px solid var(--auth-success-text);
+}
+
+.CssUpload_toast_success svg {
+  color: var(--auth-success-text);
+  font-size: 1.6rem;
+}
+
+.CssUpload_toast_error {
+  background: white;
+  color: var(--auth-error-text);
+  border-left: 8px solid var(--auth-error-text);
+}
+
+.CssUpload_toast_error svg {
+  color: var(--auth-error-text);
+  font-size: 1.6rem;
+}
+
+@keyframes slideInRightToast {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownToast {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

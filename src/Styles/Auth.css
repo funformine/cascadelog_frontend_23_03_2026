@@ -1,0 +1,319 @@
+.Signup_container {
+  display: flex;
+  min-height: calc(100vh - var(--home-nav-height)); 
+  margin-top: var(--home-nav-height); 
+  margin-bottom:5vh;
+  font-family: var(--home-font-main);
+  background-color: var(--home-bg);
+}
+
+.Signup_infoSection {
+  flex: 1;
+  background-color: var(--home-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.Signup_overlay {
+  text-align: center;
+  max-width: 550px;
+}
+
+.Signup_slogan {
+  font-size: var(--fs-auth-slogan);
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  background: var(--home-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.Signup_subtext {
+  font-size: var(--home-fs-sub);
+  color: var(--home-text-muted);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* Image Displays */
+/* Container for the grid - centered and narrowed for smaller images */
+.Signup_imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 180px); /* Fixed small width for columns */
+  justify-content: center; /* Centers the small grid */
+  gap: 15px; /* Slightly tighter gap */
+  margin-top: 30px;
+}
+
+.Signup_gridItem {
+  width: 100%; /* Fills the 120px column */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--auth-radius-img);
+  box-shadow: 0 8px 20px var(--auth-shadow);
+  background-color: var(--home-card-placeholder);
+  transition: var(--home-transition);
+}
+
+/* Optional: Slight hover effect for the small images */
+.Signup_gridItem:hover {
+  transform: translateY(-5px);
+}
+
+/* Single image for login stays slightly larger but balanced */
+.Signup_singleImageWrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.Signup_image {
+  width: 100%;
+  max-width: 260px; /* Reduced from 480px to match the 'small' theme */
+  border-radius: var(--auth-radius-img);
+  box-shadow: 0 15px 35px var(--auth-shadow);
+}
+
+/* Form Section */
+.Signup_formSection {
+  flex: 1;
+  background-color: var(--home-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.Signup_formWrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.Signup_header {
+  font-size: var(--fs-auth-header);
+  font-weight: 700;
+  color: var(--fs-auth-slogan);
+  margin-bottom: 20px;
+  background: var(--home-gradient);
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.Signup_inputGroup {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Signup_label {
+  font-size: var(--fs-auth-label);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--home-text-dark);
+}
+
+.Signup_input {
+  padding: var(--auth-input-padding);
+  border: 1.5px solid #eee;
+  border-radius: var(--home-radius-btn);
+  font-family: var(--home-font-main);
+  font-size: var(--fs-auth-input);
+  transition: var(--home-transition);
+}
+
+.Signup_input:focus {
+  outline: none;
+  border-color: var(--auth-brand-pink);
+  box-shadow: 0 0 0 4px rgba(255, 20, 147, 0.1);
+}
+
+/* Status Messages */
+.Signup_message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.Signup_success {
+  background-color: var(--auth-success-bg);
+  color: var(--auth-success-text);
+  border: 1px solid #10b981;
+}
+
+.Signup_error {
+  background-color: var(--auth-error-bg);
+  color: var(--auth-error-text);
+  border: 1px solid #fb7185;
+}
+
+/* Buttons and Links */
+.Signup_submitBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--home-gradient);
+  color: var(--home-white);
+  border: none;
+  border-radius: var(--home-radius-btn);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: transform 0.2s ease;
+}
+
+.Signup_submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+}
+
+.Signup_toggleBtn {
+  background: none;
+  border: none;
+  color: var(--auth-brand-pink);
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 0;
+  font-family: var(--home-font-main);
+  text-decoration: underline;
+}
+
+.Signup_footer {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.Signup_footerText {
+  font-size: var(--fs-auth-footer);
+  color: var(--home-text-muted);
+  margin-top: 15px;
+}
+
+.Signup_link {
+  font-size: 0.9rem;
+  color: var(--auth-brand-pink);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .Signup_container { flex-direction: column; margin-bottom:10vh}
+  .Signup_infoSection { padding: 40px 20px; }
+  .Signup_slogan { font-size: 2rem; }
+  .Signup_imageGrid, .Signup_singleImageWrapper { display: none; }
+}
+/* --- Entrance Animations --- */
+
+/* Base hidden state */
+.Signup_slogan,
+.Signup_subtext,
+.auth_pop-element,
+.auth_form-fade,
+.auth_input-stagger {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy entry */
+}
+
+/* Triggered State */
+.auth_animated .Signup_slogan,
+.auth_animated .Signup_subtext,
+.auth_animated .auth_pop-element,
+.auth_animated .auth_form-fade,
+.auth_animated .auth_input-stagger {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggering the Left Side */
+.auth_animated .Signup_slogan { transition-delay: 0.1s; }
+.auth_animated .Signup_subtext { transition-delay: 0.2s; }
+.auth_animated .auth_pop-element:nth-child(1) { transition-delay: 0.3s; }
+.auth_animated .auth_pop-element:nth-child(2) { transition-delay: 0.4s; }
+.auth_animated .auth_pop-element:nth-child(3) { transition-delay: 0.5s; }
+.auth_animated .auth_pop-element:nth-child(4) { transition-delay: 0.6s; }
+
+/* Staggering the Form Side */
+.auth_animated .auth_form-fade { transition-delay: 0.2s; }
+.auth_animated .auth_input-stagger:nth-of-type(1) { transition-delay: 0.3s; }
+.auth_animated .auth_input-stagger:nth-of-type(2) { transition-delay: 0.4s; }
+.auth_animated .auth_input-stagger:nth-of-type(3) { transition-delay: 0.5s; }
+.auth_animated .auth_input-stagger:nth-of-type(4) { transition-delay: 0.6s; }
+.auth_animated .Signup_submitBtn { transition-delay: 0.7s; }
+.auth_animated .Signup_footer { transition-delay: 0.8s; }
+
+
+/* --- Enhanced User Hover Animations --- */
+
+/* Image Hover: Lift and Glow */
+.Signup_gridItem:hover, .Signup_image:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 12px 25px rgba(255, 20, 147, 0.2);
+    filter: brightness(1.1);
+}
+
+/* Inputs: Scale on focus (already has border, adding subtle lift) */
+.Signup_input:focus {
+    transform: scale(1.01);
+}
+
+/* Submit Button: Hover Grow & Active Shrink */
+.Signup_submitBtn {
+    transition: all 0.3s ease !important; /* Ensure it overrides transition delays after entry */
+}
+
+.Signup_submitBtn:hover {
+    transform: scale(1.02) translateY(-3px);
+    letter-spacing: 0.5px;
+}
+
+.Signup_submitBtn:active {
+    transform: scale(0.98);
+}
+
+/* Toggle Link Hover */
+.Signup_toggleBtn:hover {
+    color: var(--home-text-dark);
+    text-shadow: 0px 0px 1px var(--auth-brand-pink);
+}
+
+/* Container for Input + Eye Icon */
+.Signup_passwordWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Make sure input takes full width */
+.Signup_passwordWrapper .Signup_input {
+  width: 100%;
+  padding-right: 40px; /* Space for the icon so text doesn't overlap */
+}
+
+/* The Eye Button */
+.Signup_eyeBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.Signup_eyeBtn:hover {
+  color: #ff1493; /* Matches your theme color */
+}

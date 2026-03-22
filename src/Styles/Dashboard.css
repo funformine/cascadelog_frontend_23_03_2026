@@ -1,0 +1,233 @@
+/* Container and Layout */
+.Dash_container {
+  display: flex;
+  margin-top: 70px;
+  height: 88vh;
+  background-color: #f8f9fa;
+  font-family: var(--home-font-main);
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.Dash_sidebar {
+  width: 260px;
+  background-color: white;
+  box-shadow: 5px 0 10px -10px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for toggling */
+  position: relative; /* Necessary for absolute positioning of toggle button */
+  overflow: visible; /* Allow toggle button to sit outside the border */
+}
+
+/* Sidebar Header & Toggle Button */
+.Dash_sidebarHeader {
+  padding: 12px 0;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+
+.Dash_logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: black;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.Dash_logoText span {
+  background: var(--home-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.2s;
+}
+
+/* The Button on the Sidebar Border */
+.Dash_toggleBtn {
+  position: absolute;
+  right: -35px; /* Positions it exactly on the sidebar's right border line */
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  z-index: 10;
+  color: #666;
+  transition: var(--home-transition);
+}
+
+.Dash_toggleBtn:hover {
+  color: black;
+  background-color: #f0f0f0;
+}
+
+/* Navigation Items */
+.Dash_nav {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.Dash_navItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: transparent;
+  border: none;
+  color: black;
+  border-radius: var(--home-radius-btn);
+  cursor: pointer;
+  transition: var(--home-transition);
+  font-size: 1rem;
+  font-family: var(--home-font-main);
+  overflow: hidden; /* Hide text if it overflows during transition */
+}
+
+.Dash_navItem:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: #666;
+}
+
+.Dash_navItem.Dash_active {
+  background: var(--home-gradient);
+  color: var(--home-white);
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+.Dash_icon {
+  min-width: 20px;
+  margin-right: 15px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  transition: margin 0.3s ease;
+}
+
+.Dash_linkText {
+  text-transform: capitalize;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  flex: 1;
+  text-align: left;
+}
+
+.Dash_indicator {
+  font-size: 0.8rem;
+}
+
+/* Sidebar Footer / Logout */
+.Dash_logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(225, 29, 72, 0.1);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  color: #e11d48;
+  border-radius: var(--home-radius-btn);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--home-transition);
+  overflow: hidden;
+}
+
+.Dash_logoutBtn:hover {
+  background: #e11d48;
+  color: white;
+}
+
+/* COLLAPSED STATE LOGIC */
+.collapsed .Dash_sidebar {
+  width: 80px;
+  padding: 20px 10px;
+}
+
+.collapsed .Dash_linkText, 
+.collapsed .Dash_logoText, 
+.collapsed .Dash_logoText span, 
+.collapsed .Dash_indicator,
+.collapsed .Dash_logoutBtn span {
+  display: none; /* Hide text completely when toggled */
+}
+
+.collapsed .Dash_icon {
+  margin-right: 0;
+}
+
+.collapsed .Dash_navItem,
+.collapsed .Dash_logoutBtn {
+  justify-content: center;
+}
+
+.collapsed .Dash_logoText {
+  font-size: 1.2rem;
+}
+
+/* Main Area Styling */
+.Dash_main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.Dash_card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.Dash_card h3 {
+  margin-bottom: 15px;
+  color: var(--home-accent-black);
+}
+
+@media (max-width: 735px) {
+  .Dash_sidebar {
+    width: 80px;
+    padding: 15px 10px;
+  }
+  .Dash_linkText, .Dash_logoText span, .Dash_indicator, .Dash_logoutBtn span, .Dash_toggleBtn {
+    display: none;
+  }
+  .Dash_icon {
+    margin: 0;
+  }
+  .Dash_navItem {
+    justify-content: center;
+  }
+ 
+}
+@media (min-width: 768px) {
+ .Dash_contentBody {
+    padding: 40px 40px 0px 40px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .Dash_logoText {
+    font-size: 1.3rem; /* Shrink slightly */
+  }
+}
+@media (max-width: 735px) {
+  .Dash_logoText {
+    display: none; 
+  }
+}

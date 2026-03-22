@@ -1,0 +1,449 @@
+/* --- Theme Variables --- */
+:root {
+  --gallery-gradient: linear-gradient(135deg, #FF1493, #FF8C00);
+  --accent-pink: #FF1493;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --text-main: #1a1a1a;
+  --text-muted: #888888;
+}
+
+.Prof_container {
+  background-color: var(--bg-light);
+  max-height: 88vh;
+  box-sizing: border-box;
+}
+
+/* --- Grid Layout --- */
+.Prof_mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.Prof_card {
+  background: var(--white);
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  margin-bottom: 25px;
+}
+
+/* --- Avatar Section --- */
+.Prof_mainInfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Prof_avatarWrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 15px;
+}
+
+.Prof_avatar {
+  width: 100%;
+  height: 100%;
+  background: var(--gallery-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  color: white;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.2);
+}
+
+.Prof_editAvatar {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: white;
+  border: none;
+  padding: 7px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  color: var(--accent-pink);
+  display: flex;
+}
+
+.Prof_userName { font-size: 1.5rem; font-weight: 800; margin: 10px 0 5px; color: var(--text-main); }
+.Prof_userEmail { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+
+.Prof_statsMini {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border-top: 1px solid #f5f5f5;
+}
+
+.Prof_statVal { display: block; font-size: 1.2rem; font-weight: 900; color: var(--accent-pink); }
+.Prof_statLab { font-size: 0.65rem; color: #bbb; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Edit Button --- */
+.Prof_sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.Prof_editBtn {
+  background: #fff;
+  border: 1.5px solid var(--accent-pink);
+  color: var(--accent-pink);
+  padding: 6px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Prof_editBtn:hover {
+  background: var(--gallery-gradient);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.2);
+}
+
+/* --- About Grid & Graph --- */
+.Prof_aboutGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 25px;
+}
+
+.Prof_descText { line-height: 1.6; color: #555; font-size: 0.95rem; }
+
+.Prof_textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: inherit;
+  background: #fafafa;
+  outline: none;
+}
+
+.Prof_graphBlock {
+  background: #fffcfd;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid #ffeef5;
+  display: flex;
+  flex-direction: column;
+}
+
+.Prof_graphTitle {
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 20px 0;
+}
+
+.Prof_chartArea {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 110px;
+  margin-bottom: 8px;
+}
+
+.Prof_barGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.Prof_barTrack {
+  width: 10px;
+  height: 80px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.Prof_bar {
+  width: 100%;
+  background: #ddd;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+.Prof_bar.active {
+  background: var(--gallery-gradient);
+  box-shadow: 0 4px 10px rgba(255, 20, 147, 0.2);
+}
+
+.Prof_bar.isToday {
+  border: 1.5px solid #FF8C00;
+}
+
+.Prof_dayLabel {
+  font-size: 0.65rem;
+  color: #bbb;
+  font-weight: 800;
+}
+
+.Prof_dayLabel.active {
+  color: var(--accent-pink);
+}
+
+.Prof_graphStatus {
+  font-size: 0.65rem;
+  color: #999;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* --- Password & Details --- */
+.Prof_passwordWrapper {
+  display: flex;
+  background: #f1f3f5;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.Prof_passwordWrapper input {
+  border: none;
+  background: none;
+  flex: 1;
+  font-family: monospace;
+  outline: none;
+}
+
+.Prof_eyeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* --- Recent Tasks --- */
+.Prof_taskItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.Prof_taskIcon {
+  width: 36px;
+  height: 36px;
+  background: #fff0f7;
+  color: var(--accent-pink);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Prof_taskName { font-weight: 700; color: #333; font-size: 0.9rem; }
+.Prof_taskDate { font-size: 0.75rem; color: #aaa; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .Prof_mainGrid, .Prof_aboutGrid { grid-template-columns: 1fr; }
+  .Prof_container { padding: 15px; }
+}
+@media (max-width: 390px) {
+  .Prof_mainGrid, .Prof_aboutGrid { grid-template-columns: 1fr; }
+  .Prof_container { padding: 0px; transform: scale(0.85); }
+}
+/* --- Personal Information Fields --- */
+.Prof_details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Prof_field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Prof_field label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.Prof_field p {
+  background: #f8f9fa; /* Light background for read-only phone number */
+  padding: 12px 15px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+  border: 1px solid #eee;
+  margin: 0;
+}
+
+/* --- Password Wrapper Styling --- */
+.Prof_passwordWrapper {
+  display: flex;
+  align-items: center;
+  background: #f1f3f5;
+  padding: 0 15px;
+  border-radius: 12px;
+  height: 48px; /* Fixed height for consistency */
+  border: 1px solid #e1e4e8;
+  transition: border-color 0.3s ease;
+}
+
+.Prof_passwordWrapper:focus-within {
+  border-color: var(--accent-pink);
+}
+
+.Prof_passwordWrapper input {
+  border: none;
+  background: none;
+  flex: 1;
+  font-family: 'Courier New', Courier, monospace; /* Monospace for password dots */
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  outline: none;
+  width: 100%;
+}
+
+.Prof_eyeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 0;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.Prof_eyeBtn:hover {
+  color: var(--accent-pink);
+}
+/* --- New Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.fade-in { animation: fadeIn 0.8s ease-out; }
+.slide-up { animation: slideUp 0.6s ease-out forwards; opacity: 0; }
+.scale-in { animation: scaleIn 0.3s ease-out; }
+
+/* --- Profile Image Styling --- */
+.Prof_imgPreview {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --- Password Edit Layout --- */
+.Prof_miniEdit {
+  background: none;
+  border: none;
+  color: var(--accent-pink);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.Prof_miniEdit:hover { transform: scale(1.1); }
+
+.Prof_passChangeArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Prof_passInput {
+  background: #f1f3f5;
+  border: 1px solid #e1e4e8;
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.Prof_passInput:focus { border-color: var(--accent-pink); }
+
+.Prof_passActions {
+  display: flex;
+  gap: 10px;
+}
+
+.Prof_confirmBtn {
+  background: var(--gallery-gradient);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 2;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.Prof_cancelBtn {
+  background: #eee;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* --- Smooth Grid Hover (Moving Animation) --- */
+.Prof_card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Prof_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
